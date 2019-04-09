@@ -1,0 +1,21 @@
+{
+  "name": "socketmaster",
+  "version": "1.0.0",
+  "description": "socket magic",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["websockets"],
+  "author": "lucko",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "winston": "^3.2.1",
+    "ws": "^6.2.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.1",
+    "utf-8-validate": "^5.0.2"
+  }
+}
