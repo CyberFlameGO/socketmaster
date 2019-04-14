@@ -17,7 +17,7 @@ const config = require('./config.json');
 const express = require('express');
 const http = require('http');
 const url = require('url');
-const WebSocket = require('ws');
+const ws = require('ws');
 
 const app = express();
 const server = http.createServer(app);
@@ -25,6 +25,7 @@ const server = http.createServer(app);
 const socketServers = {};
 
 // serve a generic homepage
+app.disable('x-powered-by');
 app.get('/', (req, res) => res.send('running socketmaster v1.0.0'));
 
 // post endpoint for creating new sockets
@@ -130,7 +131,7 @@ server.listen(config.port, () => logger.info("Web server now started on :" + con
 function createServer(id) {
     let server = socketServers[id];
     if (!server) {
-        server = new WebSocket.Server({ noServer: true });
+        server = new ws.Server({noServer: true});
         configureServer(server, id);
         socketServers[id] = server;
     }
